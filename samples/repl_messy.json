@@ -1,0 +1,16 @@
+{
+  "buckets": [
+    {"name": "prod-invoices", "region": "ap-mumbai-1", "versioning": "Enabled",
+     "tags": {"criticality": "prod"}, "replication": null},
+    {"name": "prod-logs", "region": "ap-mumbai-1", "versioning": "Enabled",
+     "tags": {"criticality": "prod"},
+     "replication": {"name": "repl-logs", "destination_bucket": "prod-logs-dr",
+                     "destination_region": "ap-hyderabad-1", "status": "ERROR"}},
+    {"name": "prod-logs-dr", "region": "ap-hyderabad-1", "versioning": "Enabled",
+     "has_retention_rules": true, "tags": {"criticality": "dr"},
+     "replication": {"name": "repl-chain", "destination_bucket": "third-bucket",
+                     "destination_region": "ap-singapore-1", "status": "ACTIVE"}},
+    {"name": "scratch", "region": "ap-mumbai-1", "tags": {"criticality": "dev"},
+     "replication": null}
+  ]
+}
