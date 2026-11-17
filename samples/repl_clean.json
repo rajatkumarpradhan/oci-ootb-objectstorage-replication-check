@@ -1,0 +1,12 @@
+{
+  "buckets": [
+    {"name": "prod-invoices", "region": "ap-mumbai-1", "versioning": "Enabled",
+     "tags": {"criticality": "prod"},
+     "replication": {"name": "repl-invoices", "destination_bucket": "prod-invoices-dr",
+                     "destination_region": "ap-hyderabad-1", "status": "ACTIVE"}},
+    {"name": "prod-invoices-dr", "region": "ap-hyderabad-1", "versioning": "Disabled",
+     "has_retention_rules": false, "tags": {"criticality": "dr"}, "replication": null},
+    {"name": "scratch", "region": "ap-mumbai-1", "tags": {"criticality": "dev"},
+     "replication": null}
+  ]
+}
